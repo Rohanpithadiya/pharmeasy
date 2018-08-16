@@ -1,4 +1,6 @@
 from database.db_connection import get_connection
+
+
 def setup_db():
     conn = get_connection()
     cur = conn.cursor()

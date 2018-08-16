@@ -1,5 +1,3 @@
-import json
-
 from flask_api import status
 from flask import Response
 import utils.constants as cn
@@ -17,13 +15,10 @@ def post(requester_id, patient_id, prescription_id, req_type, doc_type):
                                    req_type = req_type)
         else:
             pass # insert logic for medical records
-        # permission_requests().remove_requests(requester_id=requester_id,
-        #                                       patient_id=patient_id,
-        #                                       req_type=req_type,
-        #                                       doc_type=doc_type)
         return Response(status=status.HTTP_201_CREATED)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 def delete(requester_id,patient_id,req_type, doc_type):
     permissions_requests().remove_requests(requester_id = requester_id,

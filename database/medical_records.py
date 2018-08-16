@@ -18,6 +18,6 @@ class medical_records:
         cur = self.conn.cursor()
         cur.execute(query)
         list = cur.fetchall()
-        data = serializer(data=list,schema=schema["medical_records"])
+        data = serializer(data=list, table_schema=schema["medical_records"])
         logging.info("served all medical_records of given patient")
         return data

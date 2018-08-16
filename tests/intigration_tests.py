@@ -1,39 +1,12 @@
-# scenario test
-#
-# doctor 1 request for prescription from patient 1
-# doctor 1 request for prescription from patient 2
-# patient 1 Approves doctor 1
-# doctor 2 request for prescription from patient 1
-# patient 2 Approves doctor 1
-# patient 1 reject doctor 2
-# doctor 1 request for prescription from patient 3
-# patient 3 Approves doctor 1
-# doctor 1 gets all prescription
-# doctor 2 gets all prescription
-# doctor 3 gets all prescription
-# pharmacist 1 request for prescription from patient 1
-# pharmacist 1 request for prescription from patient 2
-# patient 1 Approves pharmacist 1
-# pharmacist 2 request for prescription from patient 1
-# patient 2 Approves pharmacist 1
-# patient 1 reject pharmacist 2
-# pharmacist 1 request for prescription from patient 3
-# patient 3 Approves pharmacist 1
-# pharmacist 1 gets all prescription
-# pharmacist 2 gets all prescription
-# pharmacist 3 gets all prescription
-
 import json
 import requests
 import unittest
-from flask_api import status
-
-import utils.constants as cn
-from tests.clear_database import clear_db
-from tests.setup_db import setup_db
-
 import logging
+
+from flask_api import status
+import utils.constants as cn
 from utils.config import config
+
 
 class Integration_test(unittest.TestCase):
     @classmethod
@@ -42,7 +15,6 @@ class Integration_test(unittest.TestCase):
         data = {"requester_id": 1, "req_type": cn.DOCTOR, "prescription_id": 1}
         res = requests.post(url=endpoint_url, data=data)
         print res
-
 
     @classmethod
     def tearDownClass(self):
@@ -119,8 +91,8 @@ class Integration_test(unittest.TestCase):
             self.assertEqual(res.status_code, status.HTTP_200_OK)
             prescription_detail = json.loads(res.content)
             # print prescription_detail
+
         except BaseException as cex:
-            # print cex
             logging.error(cex.message)
             self.assertEqual(cex.message,"")
 

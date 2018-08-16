@@ -1,5 +1,7 @@
 import unittest
 from database.medical_records import medical_records
+
+
 class Test_medical_records(unittest.TestCase):
 
     @classmethod

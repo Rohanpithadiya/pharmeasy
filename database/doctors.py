@@ -17,6 +17,6 @@ class doctors:
         cur = self.conn.cursor()
         cur.execute(query)
         list = cur.fetchall()
-        data = serializer(data=list, schema=schema["doctors"])
+        data = serializer(data=list, table_schema=schema["doctors"])
         logging.info("served doctor by its id")
         return data

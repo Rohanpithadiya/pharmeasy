@@ -1,14 +1,15 @@
 import json
 from flask_api import status
 from flask import Response
-import utils.constants as cn
 from database.medical_records import medical_records
 from database.permissions import permissions
 from database.prescriptions import prescriptions
 
+
 def get(patient_id):
-    list = medical_records().prescriptions_by_patient_id(patient_id=patient_id)
-    return Response(response=json.dumps(list),status=status.HTTP_200_OK)
+    mr_list = medical_records().prescriptions_by_patient_id(patient_id=patient_id)
+    return Response(response=json.dumps(mr_list),status=status.HTTP_200_OK)
+
 
 def get_detail(prescription_id,requester_id):
     if permissions().is_permitted(prescription_id,requester_id):

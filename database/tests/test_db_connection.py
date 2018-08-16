@@ -1,6 +1,7 @@
 import unittest
 from database.db_connection import get_connection
 
+
 class Test_db_connection(unittest.TestCase):
 
     @classmethod

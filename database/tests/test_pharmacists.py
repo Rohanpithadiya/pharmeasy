@@ -1,5 +1,7 @@
 import unittest
 from database.pharmacists import pharmacists
+
+
 class Test_pharmacists(unittest.TestCase):
 
     @classmethod

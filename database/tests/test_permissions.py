@@ -22,7 +22,6 @@ class Test_permissions(unittest.TestCase):
                                              prescription_id=prescription_id,
                                              req_type=req_type)
 
-
     def test_grant_request_pass(self):
         patient_id = 4
         requester_id = 4

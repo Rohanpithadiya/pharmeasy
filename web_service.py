@@ -78,6 +78,7 @@ def remove_grant_permissions(patient_id):
         logging.error(bex.message)
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 @app.route('/grants/<patient_id>', methods=['DELETE'])
 def reject_permissions(patient_id):
     try:
@@ -115,7 +116,6 @@ def get_prescription_details(prescription_id):
     except BaseException as bex:
         logging.error(bex.message)
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 
 if __name__ == '__main__':

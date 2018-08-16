@@ -17,6 +17,6 @@ class prescriptions:
         cur = self.conn.cursor()
         cur.execute(query)
         rows = cur.fetchone()
-        details = serializer(data=rows,schema=schema["prescriptions"])
+        details = serializer(data=rows, table_schema=schema["prescriptions"])
         logging.info("retrived prescriptions from id")
         return details

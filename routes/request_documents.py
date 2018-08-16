@@ -6,7 +6,7 @@ import utils.constants as cn
 from database.permissions_requests import permissions_requests
 
 
-def post(requester_id,patient_id,req_type,doc_type):
+def post(requester_id, patient_id, req_type,doc_type):
     if (req_type in [cn.DOCTOR, cn.PHARMA]) and \
             (doc_type in [cn.MR, cn.PRESCRIPTION]):
         permissions_requests().create_request(requester_id=requester_id,
@@ -19,5 +19,5 @@ def post(requester_id,patient_id,req_type,doc_type):
 
 
 def get(patient_id):
-    list = permissions_requests().get_all_requests(patient_id=patient_id)
-    return Response(response=json.dumps(list),status=status.HTTP_200_OK)
+    permission_list = permissions_requests().get_all_requests(patient_id=patient_id)
+    return Response(response=json.dumps(permission_list),status=status.HTTP_200_OK)

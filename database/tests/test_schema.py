@@ -31,5 +31,5 @@ class Test_schema(unittest.TestCase):
         ]
 
         data = [[1, 1, u'DR', u'PR'], [1, 2, u'DR', u'PR'], [1, 1, u'PH', u'PR']]
-        actual = serializer(data=data, schema=schema["permission_requests"])
+        actual = serializer(data=data, table_schema=schema["permission_requests"])
         self.assertEqual(actual, expected)
