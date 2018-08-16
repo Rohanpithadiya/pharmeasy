@@ -1,0 +1,1 @@
+DB_CONNECTION_ERROR = "I am unable to connect to the database"

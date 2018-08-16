@@ -1,0 +1,5 @@
+MR = "MR"
+PRESCRIPTION = "PR"
+
+DOCTOR = "DR"
+PHARMA = "PH"
