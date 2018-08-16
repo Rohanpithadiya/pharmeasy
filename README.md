@@ -1,6 +1,7 @@
 depandancies
 
 1 > python 2.7 or later
+
 2 > postgres 9.5 or later
 
 after installation
